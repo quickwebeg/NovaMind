@@ -15,10 +15,10 @@
     --surface: #e8e4db;
     --mid: #5a5a5a;
   }
-
+ 
   *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
-
+ 
   body {
     background: var(--bg);
     color: var(--ink);
@@ -26,7 +26,7 @@
     overflow-x: hidden;
     cursor: none;
   }
-
+ 
   /* CUSTOM CURSOR */
   .cursor {
     width: 12px; height: 12px;
@@ -43,7 +43,7 @@
     width: 40px; height: 40px;
     background: var(--yellow);
   }
-
+ 
   /* NAV */
   nav {
     position: fixed;
@@ -56,7 +56,7 @@
     background: var(--bg);
     border-bottom: 2px solid var(--ink);
   }
-
+ 
   .nav-logo {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 26px;
@@ -73,7 +73,7 @@
     border-radius: 50%;
     display: inline-block;
   }
-
+ 
   .nav-links {
     display: flex;
     gap: 32px;
@@ -90,7 +90,7 @@
     transition: color 0.2s;
   }
   .nav-links a:hover { color: var(--blue); }
-
+ 
   .nav-enroll {
     background: var(--blue) !important;
     color: #fff !important;
@@ -104,7 +104,7 @@
     background: var(--ink) !important;
     border-color: var(--ink) !important;
   }
-
+ 
   /* HERO — poster layout */
   .hero {
     min-height: 100vh;
@@ -114,7 +114,7 @@
     position: relative;
     overflow: hidden;
   }
-
+ 
   .hero-top {
     padding: 60px 48px 0;
     display: grid;
@@ -124,7 +124,7 @@
     position: relative;
     z-index: 2;
   }
-
+ 
   .hero-tag {
     display: inline-flex;
     align-items: center;
@@ -139,7 +139,7 @@
     margin-bottom: 20px;
     width: fit-content;
   }
-
+ 
   .hero-title-block {}
   .hero-big {
     font-family: 'Bebas Neue', sans-serif;
@@ -153,7 +153,7 @@
     -webkit-text-stroke: 2px var(--ink);
     color: transparent;
   }
-
+ 
   .hero-side {
     padding-top: 16px;
     display: flex;
@@ -170,7 +170,7 @@
     writing-mode: vertical-rl;
     letter-spacing: 4px;
   }
-
+ 
   .hero-bottom {
     padding: 40px 48px 60px;
     display: grid;
@@ -181,7 +181,7 @@
     z-index: 2;
     margin-top: 40px;
   }
-
+ 
   .hero-desc-block {
     padding: 32px 32px 32px 0;
     border-right: 2px solid var(--ink);
@@ -193,7 +193,7 @@
     max-width: 300px;
     margin-bottom: 28px;
   }
-
+ 
   .hero-stat-block {
     padding: 32px;
     border-right: 2px solid var(--ink);
@@ -217,14 +217,14 @@
     color: var(--mid);
     margin-top: 2px;
   }
-
+ 
   .hero-cta-block {
     padding: 32px 0 32px 32px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
   }
-
+ 
   /* big geometric shape bg */
   .hero-shape {
     position: absolute;
@@ -244,7 +244,7 @@
     transform: rotate(45deg);
     z-index: 1;
   }
-
+ 
   .btn-primary {
     background: var(--blue);
     color: #fff;
@@ -261,7 +261,7 @@
     cursor: none;
   }
   .btn-primary:hover { background: var(--ink); border-color: var(--ink); transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--blue); }
-
+ 
   .btn-outline {
     background: transparent;
     color: var(--ink);
@@ -278,13 +278,13 @@
     cursor: none;
   }
   .btn-outline:hover { background: var(--ink); color: var(--bg); transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(--yellow); }
-
+ 
   /* SUBJECTS */
   .subjects {
     padding: 0 48px 100px;
     border-top: 2px solid var(--ink);
   }
-
+ 
   .subjects-header {
     display: flex;
     align-items: baseline;
@@ -306,7 +306,7 @@
     letter-spacing: 2px;
     text-transform: uppercase;
   }
-
+ 
   .subjects-list {}
   .subject-row {
     display: grid;
@@ -321,7 +321,7 @@
   .subject-row:hover { background: var(--surface); margin: 0 -48px; padding: 24px 48px; }
   .subject-row:hover .subject-name { color: var(--blue); }
   .subject-row:hover .subject-arrow { transform: translate(4px, -4px); }
-
+ 
   .subject-num {
     font-family: 'DM Mono', monospace;
     font-size: 12px;
@@ -351,7 +351,7 @@
     color: var(--blue);
     transition: transform 0.2s;
   }
-
+ 
   /* WHY US — bold panel layout */
   .why {
     background: var(--ink);
@@ -361,7 +361,7 @@
     gap: 80px;
     align-items: start;
   }
-
+ 
   .why-left {}
   .why-eyebrow {
     font-family: 'DM Mono', monospace;
@@ -380,7 +380,7 @@
     letter-spacing: 1px;
   }
   .why-title .y { color: var(--yellow); }
-
+ 
   .why-body {
     font-size: 14px;
     line-height: 1.8;
@@ -388,13 +388,13 @@
     margin-top: 24px;
     max-width: 420px;
   }
-
+ 
   .why-right {
     display: flex;
     flex-direction: column;
     gap: 0;
   }
-
+ 
   .reason {
     padding: 28px 0;
     border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -423,14 +423,14 @@
     line-height: 1.6;
     color: rgba(255,255,255,0.45);
   }
-
+ 
   /* RESULTS — ticker + grid */
   .results {
     padding: 0 48px 100px;
     background: var(--bg);
     border-bottom: 2px solid var(--ink);
   }
-
+ 
   .results-ticker {
     border-bottom: 2px solid var(--ink);
     border-top: 2px solid var(--ink);
@@ -441,7 +441,7 @@
     padding: 16px 48px;
     white-space: nowrap;
   }
-
+ 
   .ticker-inner {
     display: inline-block;
     animation: ticker 20s linear infinite;
@@ -454,7 +454,7 @@
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
   }
-
+ 
   .results-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -463,14 +463,14 @@
     margin-top: 80px;
     border: 2px solid var(--ink);
   }
-
+ 
   .result-card {
     background: var(--bg);
     padding: 40px 32px;
     transition: background 0.2s;
   }
   .result-card:hover { background: var(--yellow); }
-
+ 
   .result-num {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 64px;
@@ -490,14 +490,14 @@
     color: var(--mid);
     letter-spacing: 1px;
   }
-
+ 
   /* TEACHERS */
   .teachers {
     padding: 100px 48px;
     background: var(--surface);
     border-bottom: 2px solid var(--ink);
   }
-
+ 
   .teachers-header {
     display: flex;
     justify-content: space-between;
@@ -518,13 +518,13 @@
     max-width: 320px;
     text-align: right;
   }
-
+ 
   .teachers-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
   }
-
+ 
   .teacher-card {
     background: var(--bg);
     border: 2px solid var(--ink);
@@ -535,7 +535,7 @@
   .teacher-card:hover { transform: translate(-4px, -4px); box-shadow: 6px 6px 0 var(--blue); }
   .teacher-card:nth-child(2):hover { box-shadow: 6px 6px 0 var(--yellow); }
   .teacher-card:nth-child(3):hover { box-shadow: 6px 6px 0 var(--red); }
-
+ 
   .teacher-img {
     height: 200px;
     display: flex;
@@ -550,7 +550,7 @@
   .t2 .teacher-img { background: linear-gradient(135deg, #fff9cc, #ffe566); }
   .t3 .teacher-img { background: linear-gradient(135deg, #ffd6d6, #ffaaaa); }
   .t4 .teacher-img { background: linear-gradient(135deg, #d6f0e0, #a0dbb8); }
-
+ 
   .teacher-info { padding: 20px; }
   .teacher-name {
     font-family: 'Manrope', sans-serif;
@@ -572,14 +572,14 @@
     color: var(--mid);
     line-height: 1.6;
   }
-
+ 
   /* SCHEDULE */
   .schedule {
     padding: 100px 48px;
     background: var(--bg);
     border-bottom: 2px solid var(--ink);
   }
-
+ 
   .schedule-header {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -587,12 +587,12 @@
     margin-bottom: 64px;
     align-items: end;
   }
-
+ 
   .schedule-table {
     border: 2px solid var(--ink);
     overflow: hidden;
   }
-
+ 
   .stable-head {
     display: grid;
     grid-template-columns: 1.5fr repeat(5, 1fr);
@@ -608,7 +608,7 @@
     border-right: 1px solid rgba(255,255,255,0.2);
   }
   .stable-head-cell:last-child { border-right: none; }
-
+ 
   .stable-row {
     display: grid;
     grid-template-columns: 1.5fr repeat(5, 1fr);
@@ -616,7 +616,7 @@
     transition: background 0.15s;
   }
   .stable-row:hover { background: var(--surface); }
-
+ 
   .stable-cell {
     padding: 14px 16px;
     font-size: 12px;
@@ -628,7 +628,7 @@
   }
   .stable-cell:first-child { color: var(--ink); font-weight: 500; font-size: 13px; }
   .stable-cell:last-child { border-right: none; }
-
+ 
   .time-slot {
     background: var(--blue);
     color: #fff !important;
@@ -641,14 +641,14 @@
   .time-slot.yellow { background: var(--yellow); color: var(--ink) !important; }
   .time-slot.red { background: var(--red); }
   .dot-slot { color: rgba(0,0,0,0.15) !important; }
-
+ 
   /* TESTIMONIALS */
   .testimonials {
     background: var(--yellow);
     padding: 100px 48px;
     border-bottom: 2px solid var(--ink);
   }
-
+ 
   .testi-header {
     display: flex;
     justify-content: space-between;
@@ -656,7 +656,7 @@
     margin-bottom: 64px;
   }
   .testi-header .section-title { line-height: 0.95; }
-
+ 
   .testi-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -664,14 +664,14 @@
     background: var(--ink);
     border: 2px solid var(--ink);
   }
-
+ 
   .testi-card {
     background: var(--yellow);
     padding: 40px;
     transition: background 0.2s;
   }
   .testi-card:hover { background: var(--bg); }
-
+ 
   .testi-quote {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 80px;
@@ -714,7 +714,7 @@
     font-size: 36px;
     color: var(--blue);
   }
-
+ 
   /* ENROLL */
   .enroll {
     background: var(--blue);
@@ -724,7 +724,7 @@
     gap: 80px;
     align-items: start;
   }
-
+ 
   .enroll-title {
     font-family: 'Bebas Neue', sans-serif;
     font-size: clamp(50px, 7vw, 90px);
@@ -758,7 +758,7 @@
     border-radius: 50%;
     flex-shrink: 0;
   }
-
+ 
   .enroll-form {}
   .eform-group { margin-bottom: 16px; }
   .eform-label {
@@ -786,7 +786,7 @@
   .eform-input::placeholder { color: rgba(255,255,255,0.3); }
   select.eform-input { cursor: pointer; }
   .eform-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-
+ 
   .btn-yellow {
     background: var(--yellow);
     color: var(--ink);
@@ -803,14 +803,14 @@
     margin-top: 8px;
   }
   .btn-yellow:hover { background: var(--ink); color: var(--yellow); transform: translate(-2px,-2px); box-shadow: 4px 4px 0 #fff; }
-
+ 
   /* FOOTER */
   footer {
     background: var(--ink);
     padding: 60px 48px;
     border-top: 2px solid var(--ink);
   }
-
+ 
   .footer-top {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
@@ -819,7 +819,7 @@
     padding-bottom: 40px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
   }
-
+ 
   .footer-logo {
     font-family: 'Bebas Neue', sans-serif;
     font-size: 36px;
@@ -828,14 +828,14 @@
     margin-bottom: 12px;
   }
   .footer-logo span { color: var(--yellow); }
-
+ 
   .footer-desc {
     font-size: 13px;
     color: rgba(255,255,255,0.4);
     line-height: 1.6;
     max-width: 260px;
   }
-
+ 
   .footer-col-title {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
@@ -853,7 +853,7 @@
     transition: color 0.2s;
   }
   .footer-links a:hover { color: #fff; }
-
+ 
   .footer-bottom {
     display: flex;
     justify-content: space-between;
@@ -864,7 +864,7 @@
     letter-spacing: 1px;
   }
   .footer-bottom span:last-child { color: var(--yellow); }
-
+ 
   /* WA */
   .wa-float {
     position: fixed;
@@ -879,7 +879,7 @@
     transition: transform 0.2s, box-shadow 0.2s;
   }
   .wa-float:hover { transform: translate(-3px,-3px); box-shadow: 5px 5px 0 var(--ink); }
-
+ 
   /* MOBILE */
   @media (max-width: 768px) {
     body { cursor: auto; }
@@ -922,10 +922,10 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- CURSOR -->
 <div class="cursor" id="cursor"></div>
-
+ 
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">
@@ -939,12 +939,12 @@
     <li><a href="#enroll" class="nav-enroll">Enroll Now</a></li>
   </ul>
 </nav>
-
+ 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-shape"></div>
   <div class="hero-shape2"></div>
-
+ 
   <div class="hero-top">
     <div class="hero-title-block">
       <div class="hero-tag">
@@ -962,7 +962,7 @@
       <div class="hero-side-num">2016</div>
     </div>
   </div>
-
+ 
   <div class="hero-bottom">
     <div class="hero-desc-block">
       <p class="hero-desc">
@@ -998,7 +998,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- SUBJECTS -->
 <section class="subjects" id="subjects">
   <div class="subjects-header">
@@ -1084,7 +1084,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- WHY US -->
 <section class="why" id="why">
   <div class="why-left">
@@ -1134,7 +1134,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- RESULTS -->
 <section class="results" id="results">
   <div style="padding:80px 0 0;">
@@ -1169,7 +1169,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- TEACHERS -->
 <section class="teachers" id="teachers">
   <div class="teachers-header">
@@ -1211,7 +1211,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- SCHEDULE -->
 <section class="schedule" id="schedule">
   <div class="schedule-header">
@@ -1269,7 +1269,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- TESTIMONIALS -->
 <section class="testimonials" id="testimonials">
   <div class="testi-header">
@@ -1327,7 +1327,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- ENROLL -->
 <section class="enroll" id="enroll">
   <div>
@@ -1399,7 +1399,7 @@
     <button type="submit" class="btn-yellow">Book Free Trial Session →</button>
   </form>
 </section>
-
+ 
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
@@ -1440,9 +1440,9 @@
     <span>BUILT BY QUICKWEB EG</span>
   </div>
 </footer>
-
+ 
 <a href="https://wa.me/201000000000" class="wa-float">💬</a>
-
+ 
 <script>
   // Custom cursor
   const cursor = document.getElementById('cursor');
