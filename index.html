@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaMind Academy — Cairo's Top Tutoring Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f2f0eb;
+    --ink: #0d0d0d;
+    --blue: #0057ff;
+    --yellow: #ffe500;
+    --red: #ff2d2d;
+    --surface: #e8e4db;
+    --mid: #5a5a5a;
+  }
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+background: var(–bg);
+color: var(–ink);
+font-family: ‘Manrope’, sans-serif;
+overflow-x: hidden;
+cursor: none;
+}
+
+/* CUSTOM CURSOR */
+.cursor {
+width: 12px; height: 12px;
+background: var(–blue);
+border-radius: 50%;
+position: fixed;
+pointer-events: none;
+z-index: 9999;
+transform: translate(-50%, -50%);
+transition: transform 0.1s, width 0.2s, height 0.2s, background 0.2s;
+mix-blend-mode: multiply;
+}
+.cursor.hover {
+width: 40px; height: 40px;
+background: var(–yellow);
+}
+
+/* NAV */
+nav {
+position: fixed;
+top: 0; left: 0; right: 0;
+z-index: 100;
+padding: 20px 48px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+background: var(–bg);
+border-bottom: 2px solid var(–ink);
+}
+
+.nav-logo {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 26px;
+letter-spacing: 3px;
+color: var(–ink);
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.logo-dot {
+width: 10px; height: 10px;
+background: var(–blue);
+border-radius: 50%;
+display: inline-block;
+}
+
+.nav-links {
+display: flex;
+gap: 32px;
+list-style: none;
+align-items: center;
+}
+.nav-links a {
+font-family: ‘DM Mono’, monospace;
+font-size: 11px;
+color: var(–ink);
+text-decoration: none;
+letter-spacing: 1.5px;
+text-transform: uppercase;
+transition: color 0.2s;
+}
+.nav-links a:hover { color: var(–blue); }
+
+.nav-enroll {
+background: var(–blue) !important;
+color: #fff !important;
+padding: 10px 22px;
+font-weight: 600 !important;
+border: 2px solid var(–blue) !important;
+transition: background 0.2s, color 0.2s !important;
+letter-spacing: 1px !important;
+}
+.nav-enroll:hover {
+background: var(–ink) !important;
+border-color: var(–ink) !important;
+}
+
+/* HERO — poster layout */
+.hero {
+min-height: 100vh;
+padding-top: 82px;
+display: grid;
+grid-template-rows: auto auto;
+position: relative;
+overflow: hidden;
+}
+
+.hero-top {
+padding: 60px 48px 0;
+display: grid;
+grid-template-columns: 1fr auto;
+align-items: start;
+gap: 20px;
+position: relative;
+z-index: 2;
+}
+
+.hero-tag {
+display: inline-flex;
+align-items: center;
+gap: 8px;
+background: var(–yellow);
+border: 2px solid var(–ink);
+padding: 6px 14px;
+font-family: ‘DM Mono’, monospace;
+font-size: 10px;
+letter-spacing: 2px;
+text-transform: uppercase;
+margin-bottom: 20px;
+width: fit-content;
+}
+
+.hero-title-block {}
+.hero-big {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(80px, 13vw, 180px);
+line-height: 0.9;
+letter-spacing: -1px;
+color: var(–ink);
+}
+.hero-big .blue { color: var(–blue); }
+.hero-big .outline {
+-webkit-text-stroke: 2px var(–ink);
+color: transparent;
+}
+
+.hero-side {
+padding-top: 16px;
+display: flex;
+flex-direction: column;
+align-items: flex-end;
+gap: 16px;
+}
+.hero-side-num {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 80px;
+line-height: 1;
+color: var(–surface);
+-webkit-text-stroke: 1.5px var(–ink);
+writing-mode: vertical-rl;
+letter-spacing: 4px;
+}
+
+.hero-bottom {
+padding: 40px 48px 60px;
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+gap: 0;
+border-top: 2px solid var(–ink);
+position: relative;
+z-index: 2;
+margin-top: 40px;
+}
+
+.hero-desc-block {
+padding: 32px 32px 32px 0;
+border-right: 2px solid var(–ink);
+}
+.hero-desc {
+font-size: 15px;
+line-height: 1.7;
+color: var(–mid);
+max-width: 300px;
+margin-bottom: 28px;
+}
+
+.hero-stat-block {
+padding: 32px;
+border-right: 2px solid var(–ink);
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+.hero-stats { display: flex; flex-direction: column; gap: 20px; }
+.hstat-num {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 52px;
+line-height: 1;
+color: var(–ink);
+}
+.hstat-num span { color: var(–blue); }
+.hstat-label {
+font-family: ‘DM Mono’, monospace;
+font-size: 10px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: var(–mid);
+margin-top: 2px;
+}
+
+.hero-cta-block {
+padding: 32px 0 32px 32px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+/* big geometric shape bg */
+.hero-shape {
+position: absolute;
+top: 80px; right: -80px;
+width: 500px; height: 500px;
+background: var(–yellow);
+border-radius: 50%;
+opacity: 0.15;
+z-index: 1;
+}
+.hero-shape2 {
+position: absolute;
+bottom: 80px; left: 200px;
+width: 200px; height: 200px;
+background: var(–blue);
+opacity: 0.08;
+transform: rotate(45deg);
+z-index: 1;
+}
+
+.btn-primary {
+background: var(–blue);
+color: #fff;
+border: 2px solid var(–blue);
+padding: 16px 32px;
+font-family: ‘Manrope’, sans-serif;
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 1px;
+text-decoration: none;
+text-transform: uppercase;
+display: inline-block;
+transition: background 0.2s, color 0.2s, transform 0.15s;
+cursor: none;
+}
+.btn-primary:hover { background: var(–ink); border-color: var(–ink); transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(–blue); }
+
+.btn-outline {
+background: transparent;
+color: var(–ink);
+border: 2px solid var(–ink);
+padding: 16px 32px;
+font-family: ‘Manrope’, sans-serif;
+font-size: 13px;
+font-weight: 700;
+letter-spacing: 1px;
+text-decoration: none;
+text-transform: uppercase;
+display: inline-block;
+transition: background 0.2s, color 0.2s, transform 0.15s;
+cursor: none;
+}
+.btn-outline:hover { background: var(–ink); color: var(–bg); transform: translate(-2px,-2px); box-shadow: 4px 4px 0 var(–yellow); }
+
+/* SUBJECTS */
+.subjects {
+padding: 0 48px 100px;
+border-top: 2px solid var(–ink);
+}
+
+.subjects-header {
+display: flex;
+align-items: baseline;
+gap: 24px;
+padding: 60px 0 48px;
+border-bottom: 2px solid var(–ink);
+margin-bottom: 0;
+}
+.subjects-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(40px, 6vw, 80px);
+letter-spacing: 2px;
+color: var(–ink);
+}
+.subjects-count {
+font-family: ‘DM Mono’, monospace;
+font-size: 12px;
+color: var(–mid);
+letter-spacing: 2px;
+text-transform: uppercase;
+}
+
+.subjects-list {}
+.subject-row {
+display: grid;
+grid-template-columns: 60px 1fr auto auto;
+align-items: center;
+gap: 24px;
+padding: 24px 0;
+border-bottom: 1px solid rgba(0,0,0,0.12);
+transition: background 0.2s;
+cursor: none;
+}
+.subject-row:hover { background: var(–surface); margin: 0 -48px; padding: 24px 48px; }
+.subject-row:hover .subject-name { color: var(–blue); }
+.subject-row:hover .subject-arrow { transform: translate(4px, -4px); }
+
+.subject-num {
+font-family: ‘DM Mono’, monospace;
+font-size: 12px;
+color: var(–mid);
+letter-spacing: 1px;
+}
+.subject-name {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(28px, 3vw, 42px);
+letter-spacing: 1px;
+color: var(–ink);
+transition: color 0.2s;
+}
+.subject-tags { display: flex; gap: 8px; flex-wrap: wrap; }
+.stag {
+font-family: ‘DM Mono’, monospace;
+font-size: 10px;
+letter-spacing: 1px;
+text-transform: uppercase;
+padding: 4px 10px;
+border: 1px solid rgba(0,0,0,0.2);
+color: var(–mid);
+}
+.stag.blue-tag { background: var(–blue); color: #fff; border-color: var(–blue); }
+.subject-arrow {
+font-size: 24px;
+color: var(–blue);
+transition: transform 0.2s;
+}
+
+/* WHY US — bold panel layout */
+.why {
+background: var(–ink);
+padding: 100px 48px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: start;
+}
+
+.why-left {}
+.why-eyebrow {
+font-family: ‘DM Mono’, monospace;
+font-size: 10px;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(–yellow);
+margin-bottom: 16px;
+display: block;
+}
+.why-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(50px, 7vw, 90px);
+line-height: 0.95;
+color: #fff;
+letter-spacing: 1px;
+}
+.why-title .y { color: var(–yellow); }
+
+.why-body {
+font-size: 14px;
+line-height: 1.8;
+color: rgba(255,255,255,0.5);
+margin-top: 24px;
+max-width: 420px;
+}
+
+.why-right {
+display: flex;
+flex-direction: column;
+gap: 0;
+}
+
+.reason {
+padding: 28px 0;
+border-bottom: 1px solid rgba(255,255,255,0.08);
+display: grid;
+grid-template-columns: 40px 1fr;
+gap: 20px;
+align-items: start;
+}
+.reason:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+.reason-num {
+font-family: ‘DM Mono’, monospace;
+font-size: 11px;
+color: var(–yellow);
+letter-spacing: 1px;
+padding-top: 4px;
+}
+.reason-title {
+font-family: ‘Manrope’, sans-serif;
+font-size: 16px;
+font-weight: 700;
+color: #fff;
+margin-bottom: 6px;
+}
+.reason-body {
+font-size: 13px;
+line-height: 1.6;
+color: rgba(255,255,255,0.45);
+}
+
+/* RESULTS — ticker + grid */
+.results {
+padding: 0 48px 100px;
+background: var(–bg);
+border-bottom: 2px solid var(–ink);
+}
+
+.results-ticker {
+border-bottom: 2px solid var(–ink);
+border-top: 2px solid var(–ink);
+overflow: hidden;
+padding: 16px 0;
+background: var(–yellow);
+margin: 0 -48px;
+padding: 16px 48px;
+white-space: nowrap;
+}
+
+.ticker-inner {
+display: inline-block;
+animation: ticker 20s linear infinite;
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 24px;
+letter-spacing: 4px;
+color: var(–ink);
+}
+@keyframes ticker {
+0% { transform: translateX(0); }
+100% { transform: translateX(-50%); }
+}
+
+.results-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 2px;
+background: var(–ink);
+margin-top: 80px;
+border: 2px solid var(–ink);
+}
+
+.result-card {
+background: var(–bg);
+padding: 40px 32px;
+transition: background 0.2s;
+}
+.result-card:hover { background: var(–yellow); }
+
+.result-num {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 64px;
+color: var(–blue);
+line-height: 1;
+margin-bottom: 8px;
+}
+.result-label {
+font-size: 14px;
+font-weight: 600;
+color: var(–ink);
+margin-bottom: 8px;
+}
+.result-sub {
+font-family: ‘DM Mono’, monospace;
+font-size: 11px;
+color: var(–mid);
+letter-spacing: 1px;
+}
+
+/* TEACHERS */
+.teachers {
+padding: 100px 48px;
+background: var(–surface);
+border-bottom: 2px solid var(–ink);
+}
+
+.teachers-header {
+display: flex;
+justify-content: space-between;
+align-items: flex-end;
+margin-bottom: 64px;
+}
+.section-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(40px, 6vw, 72px);
+letter-spacing: 2px;
+color: var(–ink);
+line-height: 1;
+}
+.section-sub {
+font-size: 13px;
+color: var(–mid);
+line-height: 1.6;
+max-width: 320px;
+text-align: right;
+}
+
+.teachers-grid {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 16px;
+}
+
+.teacher-card {
+background: var(–bg);
+border: 2px solid var(–ink);
+overflow: hidden;
+transition: transform 0.2s, box-shadow 0.2s;
+cursor: none;
+}
+.teacher-card:hover { transform: translate(-4px, -4px); box-shadow: 6px 6px 0 var(–blue); }
+.teacher-card:nth-child(2):hover { box-shadow: 6px 6px 0 var(–yellow); }
+.teacher-card:nth-child(3):hover { box-shadow: 6px 6px 0 var(–red); }
+
+.teacher-img {
+height: 200px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 64px;
+border-bottom: 2px solid var(–ink);
+position: relative;
+overflow: hidden;
+}
+.t1 .teacher-img { background: linear-gradient(135deg, #dce8ff, #b8d0ff); }
+.t2 .teacher-img { background: linear-gradient(135deg, #fff9cc, #ffe566); }
+.t3 .teacher-img { background: linear-gradient(135deg, #ffd6d6, #ffaaaa); }
+.t4 .teacher-img { background: linear-gradient(135deg, #d6f0e0, #a0dbb8); }
+
+.teacher-info { padding: 20px; }
+.teacher-name {
+font-family: ‘Manrope’, sans-serif;
+font-size: 16px;
+font-weight: 800;
+color: var(–ink);
+margin-bottom: 4px;
+}
+.teacher-subject {
+font-family: ‘DM Mono’, monospace;
+font-size: 10px;
+color: var(–blue);
+letter-spacing: 2px;
+text-transform: uppercase;
+margin-bottom: 10px;
+}
+.teacher-bio {
+font-size: 12px;
+color: var(–mid);
+line-height: 1.6;
+}
+
+/* SCHEDULE */
+.schedule {
+padding: 100px 48px;
+background: var(–bg);
+border-bottom: 2px solid var(–ink);
+}
+
+.schedule-header {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 60px;
+margin-bottom: 64px;
+align-items: end;
+}
+
+.schedule-table {
+border: 2px solid var(–ink);
+overflow: hidden;
+}
+
+.stable-head {
+display: grid;
+grid-template-columns: 1.5fr repeat(5, 1fr);
+background: var(–blue);
+}
+.stable-head-cell {
+padding: 14px 16px;
+font-family: ‘DM Mono’, monospace;
+font-size: 10px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: #fff;
+border-right: 1px solid rgba(255,255,255,0.2);
+}
+.stable-head-cell:last-child { border-right: none; }
+
+.stable-row {
+display: grid;
+grid-template-columns: 1.5fr repeat(5, 1fr);
+border-top: 1px solid rgba(0,0,0,0.1);
+transition: background 0.15s;
+}
+.stable-row:hover { background: var(–surface); }
+
+.stable-cell {
+padding: 14px 16px;
+font-size: 12px;
+color: var(–mid);
+border-right: 1px solid rgba(0,0,0,0.06);
+font-family: ‘DM Mono’, monospace;
+display: flex;
+align-items: center;
+}
+.stable-cell:first-child { color: var(–ink); font-weight: 500; font-size: 13px; }
+.stable-cell:last-child { border-right: none; }
+
+.time-slot {
+background: var(–blue);
+color: #fff !important;
+font-size: 10px !important;
+letter-spacing: 1px;
+padding: 4px 8px !important;
+display: inline-block !important;
+width: fit-content;
+}
+.time-slot.yellow { background: var(–yellow); color: var(–ink) !important; }
+.time-slot.red { background: var(–red); }
+.dot-slot { color: rgba(0,0,0,0.15) !important; }
+
+/* TESTIMONIALS */
+.testimonials {
+background: var(–yellow);
+padding: 100px 48px;
+border-bottom: 2px solid var(–ink);
+}
+
+.testi-header {
+display: flex;
+justify-content: space-between;
+align-items: flex-end;
+margin-bottom: 64px;
+}
+.testi-header .section-title { line-height: 0.95; }
+
+.testi-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2px;
+background: var(–ink);
+border: 2px solid var(–ink);
+}
+
+.testi-card {
+background: var(–yellow);
+padding: 40px;
+transition: background 0.2s;
+}
+.testi-card:hover { background: var(–bg); }
+
+.testi-quote {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 80px;
+line-height: 0.8;
+color: var(–ink);
+opacity: 0.15;
+margin-bottom: -20px;
+}
+.testi-text {
+font-size: 15px;
+line-height: 1.7;
+color: var(–ink);
+margin-bottom: 24px;
+font-weight: 400;
+}
+.testi-author-row {
+display: flex;
+align-items: center;
+gap: 12px;
+}
+.tav {
+width: 44px; height: 44px;
+border: 2px solid var(–ink);
+display: flex; align-items: center; justify-content: center;
+font-size: 20px;
+background: var(–bg);
+}
+.tavi-name { font-size: 13px; font-weight: 800; color: var(–ink); }
+.tavi-sub {
+font-family: ‘DM Mono’, monospace;
+font-size: 10px;
+color: var(–mid);
+letter-spacing: 1px;
+text-transform: uppercase;
+margin-top: 2px;
+}
+.testi-grade {
+margin-left: auto;
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 36px;
+color: var(–blue);
+}
+
+/* ENROLL */
+.enroll {
+background: var(–blue);
+padding: 100px 48px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: start;
+}
+
+.enroll-title {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: clamp(50px, 7vw, 90px);
+line-height: 0.95;
+color: #fff;
+letter-spacing: 1px;
+margin-bottom: 20px;
+}
+.enroll-title .outline {
+-webkit-text-stroke: 2px #fff;
+color: transparent;
+}
+.enroll-sub {
+font-size: 14px;
+color: rgba(255,255,255,0.65);
+line-height: 1.7;
+max-width: 380px;
+margin-bottom: 32px;
+}
+.enroll-info { display: flex; flex-direction: column; gap: 14px; }
+.enroll-info-row {
+display: flex;
+align-items: center;
+gap: 12px;
+font-size: 13px;
+color: rgba(255,255,255,0.8);
+}
+.eir-dot {
+width: 8px; height: 8px;
+background: var(–yellow);
+border-radius: 50%;
+flex-shrink: 0;
+}
+
+.enroll-form {}
+.eform-group { margin-bottom: 16px; }
+.eform-label {
+display: block;
+font-family: ‘DM Mono’, monospace;
+font-size: 10px;
+letter-spacing: 2px;
+text-transform: uppercase;
+color: rgba(255,255,255,0.5);
+margin-bottom: 6px;
+}
+.eform-input {
+width: 100%;
+background: rgba(255,255,255,0.1);
+border: 1px solid rgba(255,255,255,0.25);
+padding: 14px 16px;
+color: #fff;
+font-family: ‘Manrope’, sans-serif;
+font-size: 14px;
+outline: none;
+transition: border-color 0.2s, background 0.2s;
+-webkit-appearance: none;
+}
+.eform-input:focus { border-color: var(–yellow); background: rgba(255,255,255,0.15); }
+.eform-input::placeholder { color: rgba(255,255,255,0.3); }
+select.eform-input { cursor: pointer; }
+.eform-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+.btn-yellow {
+background: var(–yellow);
+color: var(–ink);
+border: 2px solid var(–yellow);
+padding: 16px 32px;
+font-family: ‘Manrope’, sans-serif;
+font-size: 13px;
+font-weight: 800;
+letter-spacing: 1px;
+text-transform: uppercase;
+width: 100%;
+cursor: none;
+transition: background 0.2s, transform 0.15s;
+margin-top: 8px;
+}
+.btn-yellow:hover { background: var(–ink); color: var(–yellow); transform: translate(-2px,-2px); box-shadow: 4px 4px 0 #fff; }
+
+/* FOOTER */
+footer {
+background: var(–ink);
+padding: 60px 48px;
+border-top: 2px solid var(–ink);
+}
+
+.footer-top {
+display: grid;
+grid-template-columns: 1.5fr 1fr 1fr 1fr;
+gap: 40px;
+margin-bottom: 48px;
+padding-bottom: 40px;
+border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-logo {
+font-family: ‘Bebas Neue’, sans-serif;
+font-size: 36px;
+color: #fff;
+letter-spacing: 3px;
+margin-bottom: 12px;
+}
+.footer-logo span { color: var(–yellow); }
+
+.footer-desc {
+font-size: 13px;
+color: rgba(255,255,255,0.4);
+line-height: 1.6;
+max-width: 260px;
+}
+
+.footer-col-title {
+font-family: ‘DM Mono’, monospace;
+font-size: 10px;
+letter-spacing: 3px;
+text-transform: uppercase;
+color: var(–yellow);
+margin-bottom: 20px;
+}
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links a {
+color: rgba(255,255,255,0.45);
+text-decoration: none;
+font-size: 13px;
+transition: color 0.2s;
+}
+.footer-links a:hover { color: #fff; }
+
+.footer-bottom {
+display: flex;
+justify-content: space-between;
+align-items: center;
+color: rgba(255,255,255,0.25);
+font-size: 12px;
+font-family: ‘DM Mono’, monospace;
+letter-spacing: 1px;
+}
+.footer-bottom span:last-child { color: var(–yellow); }
+
+/* WA */
+.wa-float {
+position: fixed;
+bottom: 32px; right: 32px;
+width: 56px; height: 56px;
+background: #25d366;
+border: 2px solid var(–ink);
+display: flex; align-items: center; justify-content: center;
+font-size: 26px;
+text-decoration: none;
+z-index: 200;
+transition: transform 0.2s, box-shadow 0.2s;
+}
+.wa-float:hover { transform: translate(-3px,-3px); box-shadow: 5px 5px 0 var(–ink); }
+
+/* MOBILE */
+@media (max-width: 768px) {
+body { cursor: auto; }
+.cursor { display: none; }
+nav { padding: 16px 24px; }
+.nav-links { display: none; }
+.hero-top { grid-template-columns: 1fr; padding: 40px 24px 0; }
+.hero-side { display: none; }
+.hero-bottom { grid-template-columns: 1fr; padding: 24px; gap: 0; }
+.hero-desc-block { border-right: none; border-bottom: 1px solid var(–ink); padding: 24px 0; }
+.hero-stat-block { border-right: none; border-bottom: 1px solid var(–ink); padding: 24px 0; flex-direction: row; gap: 24px; }
+.hero-stats { flex-direction: row; gap: 24px; }
+.hero-cta-block { padding: 24px 0 0; }
+.subjects { padding: 0 24px 60px; }
+.subject-row { grid-template-columns: 40px 1fr auto; }
+.subject-tags { display: none; }
+.subject-row:hover { margin: 0 -24px; padding: 24px 24px; }
+.why { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+.results { padding: 0 24px 60px; }
+.results-ticker { margin: 0 -24px; padding: 14px 24px; }
+.results-grid { grid-template-columns: 1fr 1fr; }
+.teachers { padding: 60px 24px; }
+.teachers-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+.section-sub { text-align: left; }
+.teachers-grid { grid-template-columns: 1fr 1fr; }
+.schedule { padding: 60px 24px; }
+.schedule-header { grid-template-columns: 1fr; gap: 16px; }
+.stable-head, .stable-row { grid-template-columns: 1.2fr repeat(3, 1fr); }
+.stable-head-cell:nth-child(5), .stable-head-cell:nth-child(6),
+.stable-cell:nth-child(5), .stable-cell:nth-child(6) { display: none; }
+.testimonials { padding: 60px 24px; }
+.testi-header { flex-direction: column; gap: 12px; }
+.testi-grid { grid-template-columns: 1fr; }
+.enroll { grid-template-columns: 1fr; padding: 60px 24px; gap: 40px; }
+.eform-row { grid-template-columns: 1fr; }
+footer { padding: 40px 24px; }
+.footer-top { grid-template-columns: 1fr 1fr; }
+.footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- CURSOR -->
+
+<div class="cursor" id="cursor"></div>
+
+<!-- NAV -->
+
+<nav>
+  <a href="#" class="nav-logo">
+    <span class="logo-dot"></span>
+    NovaMind
+  </a>
+  <ul class="nav-links">
+    <li><a href="#subjects">Subjects</a></li>
+    <li><a href="#teachers">Teachers</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#enroll" class="nav-enroll">Enroll Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-shape"></div>
+  <div class="hero-shape2"></div>
+
+  <div class="hero-top">
+    <div class="hero-title-block">
+      <div class="hero-tag">
+        <span>★</span>
+        Cairo's Top Tutoring Center — Est. 2016
+      </div>
+      <div class="hero-big">
+        <div>THINK</div>
+        <div class="blue">BIGGER.</div>
+        <div class="outline">SCORE</div>
+        <div>HIGHER.</div>
+      </div>
+    </div>
+    <div class="hero-side">
+      <div class="hero-side-num">2016</div>
+    </div>
+  </div>
+
+  <div class="hero-bottom">
+    <div class="hero-desc-block">
+      <p class="hero-desc">
+        NovaMind Academy helps Egyptian students from Year 7 to University reach their full academic potential — with expert tutors, proven methods, and real results.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <a href="#enroll" class="btn-primary">Enroll Now</a>
+        <a href="#subjects" class="btn-outline">Browse Subjects</a>
+      </div>
+    </div>
+    <div class="hero-stat-block">
+      <div class="hero-stats">
+        <div>
+          <div class="hstat-num"><span>2,400</span>+</div>
+          <div class="hstat-label">Students Taught</div>
+        </div>
+        <div>
+          <div class="hstat-num"><span>94</span>%</div>
+          <div class="hstat-label">Grade Improvement</div>
+        </div>
+        <div>
+          <div class="hstat-num"><span>18</span></div>
+          <div class="hstat-label">Expert Tutors</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-cta-block">
+      <div style="background:var(--yellow);border:2px solid var(--ink);padding:24px;">
+        <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--mid);margin-bottom:8px;">FREE TRIAL CLASS</div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:1px;color:var(--ink);margin-bottom:4px;">Book your first session — no commitment</div>
+        <div style="font-size:12px;color:var(--mid);">Available for all subjects and grade levels.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBJECTS -->
+
+<section class="subjects" id="subjects">
+  <div class="subjects-header">
+    <div class="subjects-title">SUBJECTS WE TEACH</div>
+    <div class="subjects-count">— 08 DISCIPLINES</div>
+  </div>
+  <div class="subjects-list">
+    <div class="subject-row">
+      <span class="subject-num">01</span>
+      <span class="subject-name">MATHEMATICS</span>
+      <div class="subject-tags">
+        <span class="stag blue-tag">Igcse</span>
+        <span class="stag">Thanaweya</span>
+        <span class="stag">University</span>
+      </div>
+      <span class="subject-arrow">↗</span>
+    </div>
+    <div class="subject-row">
+      <span class="subject-num">02</span>
+      <span class="subject-name">PHYSICS</span>
+      <div class="subject-tags">
+        <span class="stag blue-tag">Igcse</span>
+        <span class="stag">Thanaweya</span>
+      </div>
+      <span class="subject-arrow">↗</span>
+    </div>
+    <div class="subject-row">
+      <span class="subject-num">03</span>
+      <span class="subject-name">CHEMISTRY</span>
+      <div class="subject-tags">
+        <span class="stag blue-tag">Igcse</span>
+        <span class="stag">Thanaweya</span>
+        <span class="stag">Medical Prep</span>
+      </div>
+      <span class="subject-arrow">↗</span>
+    </div>
+    <div class="subject-row">
+      <span class="subject-num">04</span>
+      <span class="subject-name">BIOLOGY</span>
+      <div class="subject-tags">
+        <span class="stag blue-tag">Igcse</span>
+        <span class="stag">Medical Prep</span>
+      </div>
+      <span class="subject-arrow">↗</span>
+    </div>
+    <div class="subject-row">
+      <span class="subject-num">05</span>
+      <span class="subject-name">ENGLISH LANGUAGE</span>
+      <div class="subject-tags">
+        <span class="stag">All Levels</span>
+        <span class="stag blue-tag">IELTS Prep</span>
+        <span class="stag">SAT</span>
+      </div>
+      <span class="subject-arrow">↗</span>
+    </div>
+    <div class="subject-row">
+      <span class="subject-num">06</span>
+      <span class="subject-name">ARABIC LANGUAGE</span>
+      <div class="subject-tags">
+        <span class="stag">Thanaweya</span>
+        <span class="stag">Year 7–12</span>
+      </div>
+      <span class="subject-arrow">↗</span>
+    </div>
+    <div class="subject-row">
+      <span class="subject-num">07</span>
+      <span class="subject-name">HISTORY & GEOGRAPHY</span>
+      <div class="subject-tags">
+        <span class="stag">Year 7–9</span>
+        <span class="stag">Thanaweya</span>
+      </div>
+      <span class="subject-arrow">↗</span>
+    </div>
+    <div class="subject-row">
+      <span class="subject-num">08</span>
+      <span class="subject-name">COMPUTER SCIENCE</span>
+      <div class="subject-tags">
+        <span class="stag blue-tag">Igcse</span>
+        <span class="stag">University</span>
+        <span class="stag">A-Level</span>
+      </div>
+      <span class="subject-arrow">↗</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+
+<section class="why" id="why">
+  <div class="why-left">
+    <span class="why-eyebrow">Why NovaMind?</span>
+    <div class="why-title">
+      WE GET<br>YOUR KIDS<br><span class="y">RESULTS.</span>
+    </div>
+    <p class="why-body">
+      We're not a generic tutoring shop. Every tutor is rigorously selected, every session is structured, and every student gets a personalised plan built around their exact weaknesses and goals.
+    </p>
+  </div>
+  <div class="why-right">
+    <div class="reason">
+      <span class="reason-num">01</span>
+      <div>
+        <div class="reason-title">Personalised Learning Plans</div>
+        <p class="reason-body">Before your first session, we assess your level and build a custom roadmap targeting exactly what you need to improve — not a generic syllabus.</p>
+      </div>
+    </div>
+    <div class="reason">
+      <span class="reason-num">02</span>
+      <div>
+        <div class="reason-title">Expert, Vetted Tutors</div>
+        <p class="reason-body">Every NovaMind tutor goes through a rigorous application and trial process. Only 1 in 8 applicants makes it onto our team.</p>
+      </div>
+    </div>
+    <div class="reason">
+      <span class="reason-num">03</span>
+      <div>
+        <div class="reason-title">Progress Tracked Weekly</div>
+        <p class="reason-body">Parents receive weekly progress reports. You always know exactly where your child stands and what we're working on next.</p>
+      </div>
+    </div>
+    <div class="reason">
+      <span class="reason-num">04</span>
+      <div>
+        <div class="reason-title">Groups & 1-on-1 Available</div>
+        <p class="reason-body">Prefer focused 1-on-1 sessions or smaller group classes? We offer both, in-person in Cairo and online.</p>
+      </div>
+    </div>
+    <div class="reason">
+      <span class="reason-num">05</span>
+      <div>
+        <div class="reason-title">Free Trial — No Commitment</div>
+        <p class="reason-body">Try a full session before you pay anything. We're confident you'll see the difference after just one class.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+
+<section class="results" id="results">
+  <div style="padding:80px 0 0;">
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,6vw,72px);letter-spacing:2px;margin-bottom:8px;">OUR RESULTS SPEAK</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--mid);text-transform:uppercase;">2023–2024 Academic Year</div>
+  </div>
+  <div class="results-ticker" style="margin-top:48px;">
+    <span class="ticker-inner">
+      GRADE IMPROVEMENT · EXAM SUCCESS · UNIVERSITY ACCEPTANCE · IELTS SCORES · IGCSE A*s · HAPPY PARENTS · 94% SUCCESS RATE · GRADE IMPROVEMENT · EXAM SUCCESS · UNIVERSITY ACCEPTANCE · IELTS SCORES · IGCSE A*s · HAPPY PARENTS · 94% SUCCESS RATE ·&nbsp;
+    </span>
+  </div>
+  <div class="results-grid">
+    <div class="result-card">
+      <div class="result-num">94%</div>
+      <div class="result-label">Grade Improvement Rate</div>
+      <div class="result-sub">Within 3 months of joining</div>
+    </div>
+    <div class="result-card">
+      <div class="result-num">340+</div>
+      <div class="result-label">IGCSE A & A* Grades</div>
+      <div class="result-sub">Across all subjects 2023–24</div>
+    </div>
+    <div class="result-card">
+      <div class="result-num">98%</div>
+      <div class="result-label">Thanaweya Pass Rate</div>
+      <div class="result-sub">Students who enrolled full year</div>
+    </div>
+    <div class="result-card">
+      <div class="result-num">4.9★</div>
+      <div class="result-label">Parent Satisfaction</div>
+      <div class="result-sub">Based on 600+ reviews</div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHERS -->
+
+<section class="teachers" id="teachers">
+  <div class="teachers-header">
+    <div class="section-title">MEET<br>YOUR TUTORS</div>
+    <p class="section-sub">Every tutor is a subject specialist, not a generalist. Your child gets someone who truly masters what they teach.</p>
+  </div>
+  <div class="teachers-grid">
+    <div class="teacher-card t1">
+      <div class="teacher-img">🧮</div>
+      <div class="teacher-info">
+        <div class="teacher-name">Dr. Khaled Nour</div>
+        <div class="teacher-subject">Mathematics</div>
+        <p class="teacher-bio">PhD in Applied Mathematics. 12 years teaching IGCSE & Thanaweya. 200+ A* students.</p>
+      </div>
+    </div>
+    <div class="teacher-card t2">
+      <div class="teacher-img">⚗️</div>
+      <div class="teacher-info">
+        <div class="teacher-name">Ms. Rania Samir</div>
+        <div class="teacher-subject">Chemistry & Biology</div>
+        <p class="teacher-bio">Faculty of Science graduate. Specialist in medical prep. Known for making complex topics simple.</p>
+      </div>
+    </div>
+    <div class="teacher-card t3">
+      <div class="teacher-img">📖</div>
+      <div class="teacher-info">
+        <div class="teacher-name">Mr. Omar Youssef</div>
+        <div class="teacher-subject">English & IELTS</div>
+        <p class="teacher-bio">CELTA certified. Helped 150+ students achieve 7.0+ IELTS. Fluent in English & Arabic.</p>
+      </div>
+    </div>
+    <div class="teacher-card t4">
+      <div class="teacher-img">⚡</div>
+      <div class="teacher-info">
+        <div class="teacher-name">Eng. Layla Hassan</div>
+        <div class="teacher-subject">Physics & CS</div>
+        <p class="teacher-bio">Engineering graduate, 8 years experience. Top-rated tutor for IGCSE Physics and Computer Science.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCHEDULE -->
+
+<section class="schedule" id="schedule">
+  <div class="schedule-header">
+    <div class="section-title">WEEKLY<br>SCHEDULE</div>
+    <p style="font-size:13px;color:var(--mid);line-height:1.7;max-width:320px;">Sessions run throughout the week. All times are Cairo time (EET). Online sessions available for all slots.</p>
+  </div>
+  <div class="schedule-table">
+    <div class="stable-head">
+      <div class="stable-head-cell">Subject</div>
+      <div class="stable-head-cell">Sun</div>
+      <div class="stable-head-cell">Mon</div>
+      <div class="stable-head-cell">Tue</div>
+      <div class="stable-head-cell">Wed</div>
+      <div class="stable-head-cell">Thu</div>
+    </div>
+    <div class="stable-row">
+      <div class="stable-cell">Mathematics</div>
+      <div class="stable-cell"><span class="time-slot">4:00 PM</span></div>
+      <div class="stable-cell"><span class="dot-slot">—</span></div>
+      <div class="stable-cell"><span class="time-slot">4:00 PM</span></div>
+      <div class="stable-cell"><span class="dot-slot">—</span></div>
+      <div class="stable-cell"><span class="time-slot yellow">6:00 PM</span></div>
+    </div>
+    <div class="stable-row">
+      <div class="stable-cell">Physics</div>
+      <div class="stable-cell"><span class="dot-slot">—</span></div>
+      <div class="stable-cell"><span class="time-slot">5:00 PM</span></div>
+      <div class="stable-cell"><span class="dot-slot">—</span></div>
+      <div class="stable-cell"><span class="time-slot">5:00 PM</span></div>
+      <div class="stable-cell"><span class="dot-slot">—</span></div>
+    </div>
+    <div class="stable-row">
+      <div class="stable-cell">Chemistry</div>
+      <div class="stable-cell"><span class="time-slot red">3:00 PM</span></div>
+      <div class="stable-cell"><span class="dot-slot">—</span></div>
+      <div class="stable-cell"><span class="time-slot red">3:00 PM</span></div>
+      <div class="stable-cell"><span class="dot-slot">—</span></div>
+      <div class="stable-cell"><span class="time-slot">5:00 PM</span></div>
+    </div>
+    <div class="stable-row">
+      <div class="stable-cell">English</div>
+      <div class="stable-cell"><span class="dot-slot">—</span></div>
+      <div class="stable-cell"><span class="time-slot yellow">4:00 PM</span></div>
+      <div class="stable-cell"><span class="dot-slot">—</span></div>
+      <div class="stable-cell"><span class="time-slot yellow">4:00 PM</span></div>
+      <div class="stable-cell"><span class="dot-slot">—</span></div>
+    </div>
+    <div class="stable-row">
+      <div class="stable-cell">Arabic</div>
+      <div class="stable-cell"><span class="time-slot">6:00 PM</span></div>
+      <div class="stable-cell"><span class="dot-slot">—</span></div>
+      <div class="stable-cell"><span class="dot-slot">—</span></div>
+      <div class="stable-cell"><span class="time-slot">6:00 PM</span></div>
+      <div class="stable-cell"><span class="dot-slot">—</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+
+<section class="testimonials" id="testimonials">
+  <div class="testi-header">
+    <div class="section-title">STUDENTS<br>DON'T LIE.</div>
+    <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:var(--mid);text-transform:uppercase;">600+ verified reviews · 4.9 avg</div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">I went from a D to an A* in IGCSE Maths in one school year. Dr. Khaled's method is unlike anything I've tried before — he actually explains the why, not just the how.</p>
+      <div class="testi-author-row">
+        <div class="tav">🎓</div>
+        <div>
+          <div class="tavi-name">Adam R.</div>
+          <div class="tavi-sub">IGCSE Student · Heliopolis</div>
+        </div>
+        <div class="testi-grade">A*</div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">My son hated chemistry and was failing. After 2 months with Ms. Rania, he started enjoying it. He got 88% in his final exam. I couldn't believe it.</p>
+      <div class="testi-author-row">
+        <div class="tav">👩</div>
+        <div>
+          <div class="tavi-name">Maha T. (Parent)</div>
+          <div class="tavi-sub">Thanaweya Student · Nasr City</div>
+        </div>
+        <div class="testi-grade">88%</div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">I got 7.5 in IELTS after 3 months with Omar. He tailored every single session to my weak areas. I've tried other places and nothing comes close to NovaMind.</p>
+      <div class="testi-author-row">
+        <div class="tav">📚</div>
+        <div>
+          <div class="tavi-name">Farid S.</div>
+          <div class="tavi-sub">IELTS Student · Maadi</div>
+        </div>
+        <div class="testi-grade">7.5</div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">The weekly progress reports are incredible. As a parent you always know exactly what's happening. Other centres just take your money and hope for the best.</p>
+      <div class="testi-author-row">
+        <div class="tav">👨</div>
+        <div>
+          <div class="tavi-name">Hossam M. (Parent)</div>
+          <div class="tavi-sub">2 Children Enrolled · Zamalek</div>
+        </div>
+        <div class="testi-grade">★★★★★</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ENROLL -->
+
+<section class="enroll" id="enroll">
+  <div>
+    <div class="enroll-title">
+      READY<br>TO START?<br><span class="outline">LET'S GO.</span>
+    </div>
+    <p class="enroll-sub">Fill in the form and we'll get back to you within a few hours to confirm your slot and discuss which subjects you need.</p>
+    <div class="enroll-info">
+      <div class="enroll-info-row"><div class="eir-dot"></div>First session is completely free — no commitment</div>
+      <div class="enroll-info-row"><div class="eir-dot"></div>In-person (Nasr City) & online sessions available</div>
+      <div class="enroll-info-row"><div class="eir-dot"></div>All Egyptian curricula: Thanaweya, IGCSE, American Diploma</div>
+      <div class="enroll-info-row"><div class="eir-dot"></div>WhatsApp: +20 100 000 0000</div>
+      <div class="enroll-info-row"><div class="eir-dot"></div>Sessions available 7 days a week, 2pm – 9pm</div>
+    </div>
+  </div>
+  <form class="enroll-form">
+    <div class="eform-row">
+      <div class="eform-group">
+        <label class="eform-label">Student Name</label>
+        <input class="eform-input" type="text" placeholder="Full name">
+      </div>
+      <div class="eform-group">
+        <label class="eform-label">Parent Phone</label>
+        <input class="eform-input" type="tel" placeholder="+20 1XX XXX XXXX">
+      </div>
+    </div>
+    <div class="eform-row">
+      <div class="eform-group">
+        <label class="eform-label">Grade / Year</label>
+        <select class="eform-input">
+          <option value="">Select grade...</option>
+          <option>Year 7</option>
+          <option>Year 8</option>
+          <option>Year 9</option>
+          <option>Year 10 / IGCSE 1</option>
+          <option>Year 11 / IGCSE 2</option>
+          <option>Thanaweya Year 1</option>
+          <option>Thanaweya Year 2</option>
+          <option>University</option>
+          <option>IELTS / SAT Prep</option>
+        </select>
+      </div>
+      <div class="eform-group">
+        <label class="eform-label">Curriculum</label>
+        <select class="eform-input">
+          <option value="">Select...</option>
+          <option>Egyptian / Thanaweya</option>
+          <option>IGCSE / Cambridge</option>
+          <option>American Diploma</option>
+          <option>IB</option>
+          <option>Other</option>
+        </select>
+      </div>
+    </div>
+    <div class="eform-group">
+      <label class="eform-label">Subject(s) Needed</label>
+      <input class="eform-input" type="text" placeholder="e.g. Maths, Physics, English">
+    </div>
+    <div class="eform-group">
+      <label class="eform-label">Preferred Session Type</label>
+      <select class="eform-input">
+        <option value="">Select...</option>
+        <option>1-on-1 (In Person)</option>
+        <option>1-on-1 (Online)</option>
+        <option>Small Group (In Person)</option>
+        <option>Small Group (Online)</option>
+      </select>
+    </div>
+    <button type="submit" class="btn-yellow">Book Free Trial Session →</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">Nova<span>Mind</span></div>
+      <p class="footer-desc">Cairo's top tutoring academy. Helping Egyptian students think bigger and score higher since 2016.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="#subjects">Subjects</a></li>
+        <li><a href="#why">Why NovaMind</a></li>
+        <li><a href="#teachers">Our Tutors</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#enroll">Enroll</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Location</div>
+      <ul class="footer-links">
+        <li><a href="#">22 Abbas El Akkad St.</a></li>
+        <li><a href="#">Nasr City, Cairo</a></li>
+        <li><a href="#">Online — All Egypt</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Follow</div>
+      <ul class="footer-links">
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">TikTok</a></li>
+        <li><a href="#">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 NOVAMIND ACADEMY · ALL RIGHTS RESERVED</span>
+    <span>BUILT BY QUICKWEB EG</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/201000000000" class="wa-float">💬</a>
+
+<script>
+  // Custom cursor
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', e => {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+  document.querySelectorAll('a, button, .subject-row, .result-card, .teacher-card, .testi-card').forEach(el => {
+    el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+    el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+  });
+</script>
+
+</body>
+</html>
